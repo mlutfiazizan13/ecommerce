@@ -13,6 +13,15 @@ export default {
     ],
 
     theme: {
+        colors: {
+            'vintage' : '#EEEEEE',
+            'teal': '#76ABAE',
+            'lighter-black': '#31363F',
+            'light-black': '#222831',
+            'white': '#ffffff',
+            'black': '#000'
+
+        },
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],

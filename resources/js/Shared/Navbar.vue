@@ -16,30 +16,96 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 // });
 </script>
 
+<script>
+export default {
+  name: 'Welcome',
+
+  data() {
+    return {
+      scrollingUp: false,
+      scrollingDown: false,
+      prevScrollpos: window.pageYOffset,
+    };
+  },
+
+  computed: {
+    getMainNavClasses() {
+      return {
+        'scroll-up': this.scrollingUp,
+        'scroll-down': this.scrollingDown,
+      };
+    },
+  },
+
+  methods: {
+    scrollNow() {
+      const currentScrollPos = window.pageYOffset;
+      console.log(currentScrollPos);
+
+      if (currentScrollPos == 0) {
+        this.scrollingUp = false;
+        this.scrollingDown = false;
+        return;
+      }
+
+      if (currentScrollPos < 100) return; // set offset here
+
+      if (this.prevScrollpos > currentScrollPos) {
+        // up
+        this.scrollingDown = false;
+        this.scrollingUp = true;
+      } else {
+        // down
+        this.scrollingUp = false;
+        this.scrollingDown = true;
+      }
+
+      this.prevScrollpos = currentScrollPos;
+    },
+
+    handleScroll() {
+      let doScoll;
+
+      window.onscroll = () => {
+        clearTimeout(doScoll);
+        doScoll = setTimeout(this.scrollNow, 100); // firing less scroll events
+      };
+    },
+  },
+
+  created() {
+    this.handleScroll();
+  },
+};
+</script>
+
 <template>
     <div class="relative max-w-[1200px] mx-auto">
-        <div class="absolute flex justify-between items-center bg-transparent w-full h-[100px] z-50">
-            <div class="">
-                <p class="text-3xl font-medium">Product</p>
-            </div>
-            <div class="flex gap-10 text-lg">
-                <p>Home</p>
-                <p>Producs</p>
-                <p>Contact Us</p>
-          
-            </div>
-            <div class="flex gap-5">
-                <div class="text-xl">
-                    <p>Login</p>
+        <div :class="{'fixed bg-white max-w-[1200px]': scrollingDown, 'absolute': !scrollingDown}" class="flex justify-between items-center bg-transparent w-full h-[100px] z-50 duration-100 ease-in">
+            <!-- <div class="fixed top-0 bg-transparent w-full h-[100px] z-50 duration-150"> -->
+                <div class="flex justify-between items-center h-full w-full">
+                    <div class="">
+                        <p class="text-3xl font-medium text-light-black">Product</p>
+                    </div>
+                    <div class="flex gap-10 text-lg text-light-black">
+                        <p>Home</p>
+                        <p>Producs</p>
+                        <p>Contact Us</p>
+                  
+                    </div>
+                    <div class="flex gap-5 text-light-black">
+                        <Link :href="route('login')" class="text-lg">
+                            <p>Login</p>
+                        </Link>
+                        <div class="text-2xl">
+                            <font-awesome-icon :icon="['fas', 'heart']" />
+                        </div>
+                        <div class="text-2xl">
+                            <font-awesome-icon :icon="['fas', 'bag-shopping']" />
+                        </div>
+                    </div>
                 </div>
-                <div class="text-2xl">
-                    <font-awesome-icon :icon="['fas', 'heart']" />
-                </div>
-                <div class="text-2xl">
-                    <font-awesome-icon :icon="['fas', 'bag-shopping']" />
-                </div>
             </div>
-        </div>
     </div>
 
 </template>
