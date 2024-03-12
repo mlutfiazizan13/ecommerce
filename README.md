@@ -2,7 +2,7 @@
 ## About Ecommerce
   
 This Project built using Laravel 10, Inertia js, and Vue js.
-Requires [PHP](https://nodejs.org/) v8.1 to run the application.
+Requires [PHP](https://www.php.net/releases/8.1/en.php) v8.1 to run the application.
 
 Install the required laravel package
 ```sh
