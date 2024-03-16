@@ -68,7 +68,7 @@ export default {
 
       window.onscroll = () => {
         clearTimeout(doScoll);
-        doScoll = setTimeout(this.scrollNow, 100); // firing less scroll events
+        doScoll = setTimeout(this.scrollNow, 0); // firing less scroll events
       };
     },
   },
@@ -81,9 +81,9 @@ export default {
 
 <template>
     <div class="relative max-w-[1200px] mx-auto">
-        <div :class="{'fixed bg-white max-w-[1200px]': scrollingDown, 'absolute': !scrollingDown}" class="flex justify-between items-center bg-transparent w-full h-[100px] z-50 duration-100 ease-in">
+        <div :class="{'bg-white': scrollingDown, '': !scrollingDown}" class="right-0 fixed flex justify-center items-center bg-transparent w-full h-[100px] z-50 duration-500 ease-in">
             <!-- <div class="fixed top-0 bg-transparent w-full h-[100px] z-50 duration-150"> -->
-                <div class="flex justify-between items-center h-full w-full">
+                <div class="flex justify-between items-center h-full w-full max-w-[1200px]">
                     <div class="">
                         <p class="text-3xl font-medium text-light-black">Product</p>
                     </div>

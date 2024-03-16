@@ -7,7 +7,8 @@ import { onMounted } from 'vue';
 onMounted(() => {
     const glide = new Glide('.glide',  {
         type: 'carousel',
-        startAt: 0,      
+        startAt: 0,
+        gap: 0
     }).mount();
 })
  
@@ -34,7 +35,7 @@ onMounted(() => {
             <div class="glide">
                 <div class="glide__track" data-glide-el="track">
                   <ul class="glide__slides">
-                    <li class="glide__slide">
+                    <li class="glide__slide ml-0 mr-0">
                         <div class="flex justify-center items-center bg-vintage h-[890px] cursor-default">
                             <div class="relative max-w-[1200px] mx-auto">
                                 <div class=" grid grid-cols-2 gap-10 items-center">
@@ -53,7 +54,7 @@ onMounted(() => {
                            
                         </div>
                     </li>
-                    <li class="glide__slide">    
+                    <li class="glide__slide ml-0 mr-0">    
                         <div class=" flex justify-center items-center bg-vintage h-[890px] cursor-default">
                             <div class="relative max-w-[1200px] mx-auto">
                                 <div class=" grid grid-cols-2 gap-10 items-center">
