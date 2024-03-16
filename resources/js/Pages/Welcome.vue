@@ -3,6 +3,7 @@ import WebLayout from '@/Layouts/WebLayout.vue';
 import { Head, Link } from '@inertiajs/vue3';
 import Glide from '@glidejs/glide';
 import { onMounted } from 'vue';
+import ProductCard from '@/Components/ProductCard.vue';
 
 onMounted(() => {
     const glide = new Glide('.glide',  {
@@ -83,8 +84,73 @@ onMounted(() => {
         </section>
 
 
-        <section>
-            <div class="h-screen  ">
+        <section class="relative max-w-[1200px] mx-auto py-20">
+            <div class="text-center">
+                <p class="text-5xl font-medium mb-3">Our Latest Arrival</p>
+                <p class="text-sm opacity-70">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem, cumque?</p>
+            </div>
+            <div class="grid grid-cols-3 gap-3 py-20">
+                <div>
+                    <div class="h-[500px] w-full bg-light-black">
+
+                    </div>
+                    
+                </div>
+                <div>
+                    <div class="h-[500px] w-full bg-light-black">
+
+                    </div>
+                    
+                </div>
+                <div>
+                    <div class="h-[500px] w-full bg-light-black">
+
+                    </div>
+                    
+                </div>
+
+            </div>
+        </section>
+
+        <section class="relative max-w-[1200px] mx-auto py-20">
+            <div class="text-center">
+                <p class="text-5xl font-medium mb-3">Our Products</p>
+                <p class="text-sm opacity-70">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Exercitationem, cumque?</p>
+            </div>
+            <div class="grid grid-cols-3 gap-3 py-20">
+                <ProductCard 
+                    image="https://www.newbalance.co.id/media/catalog/product/cache/c1feb3550df60acd013ba17bf29e4991/0/8/0888-NEWMT580ADBGRE10H-1.jpg"
+                    title="Lorem Ipsum"
+                    price="2.000.000" />
+
+                <ProductCard 
+                    image="https://www.newbalance.co.id/media/catalog/product/cache/c1feb3550df60acd013ba17bf29e4991/0/8/0888-NEWMT580ADBGRE10H-1.jpg"
+                    title="Lorem Ipsum"
+                    price="2.000.000" />
+
+                <ProductCard 
+                    image="https://www.newbalance.co.id/media/catalog/product/cache/c1feb3550df60acd013ba17bf29e4991/0/8/0888-NEWMT580ADBGRE10H-1.jpg"
+                    title="Lorem Ipsum"
+                    price="2.000.000" />
+
+                <ProductCard 
+                    image="https://www.newbalance.co.id/media/catalog/product/cache/c1feb3550df60acd013ba17bf29e4991/0/8/0888-NEWMT580ADBGRE10H-1.jpg"
+                    title="Lorem Ipsum"
+                    price="2.000.000" />
+
+                <ProductCard 
+                    image="https://www.newbalance.co.id/media/catalog/product/cache/c1feb3550df60acd013ba17bf29e4991/0/8/0888-NEWMT580ADBGRE10H-1.jpg"
+                    title="Lorem Ipsum"
+                    price="2.000.000" />
+
+                <ProductCard 
+                    image="https://www.newbalance.co.id/media/catalog/product/cache/c1feb3550df60acd013ba17bf29e4991/0/8/0888-NEWMT580ADBGRE10H-1.jpg"
+                    title="Lorem Ipsum"
+                    price="2.000.000" />
+                
+
+                
+                
 
             </div>
         </section>
