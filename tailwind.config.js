@@ -19,7 +19,8 @@ export default {
             'lighter-black': '#31363F',
             'light-black': '#222831',
             'white': '#ffffff',
-            'black': '#000'
+            'black': '#000',
+            'gray': '#F4F5F7'
 
         },
         extend: {

@@ -22,45 +22,27 @@ export default {
 
   data() {
     return {
-      scrollingUp: false,
       scrollingDown: false,
-      prevScrollpos: window.pageYOffset,
     };
-  },
-
-  computed: {
-    getMainNavClasses() {
-      return {
-        'scroll-up': this.scrollingUp,
-        'scroll-down': this.scrollingDown,
-      };
-    },
   },
 
   methods: {
     scrollNow() {
       const currentScrollPos = window.pageYOffset;
-      console.log(currentScrollPos);
 
       if (currentScrollPos == 0) {
-        this.scrollingUp = false;
         this.scrollingDown = false;
         return;
       }
 
-      if (currentScrollPos < 100) return; // set offset here
-
-      if (this.prevScrollpos > currentScrollPos) {
-        // up
-        this.scrollingDown = false;
-        this.scrollingUp = true;
+      if (currentScrollPos > 100) {
+        this.scrollingDown = true
       } else {
-        // down
-        this.scrollingUp = false;
-        this.scrollingDown = true;
+        this.scrollingDown = false
       }
 
-      this.prevScrollpos = currentScrollPos;
+
+      // this.prevScrollpos = currentScrollPos;
     },
 
     handleScroll() {
@@ -81,7 +63,7 @@ export default {
 
 <template>
     <div class="relative max-w-[1200px] mx-auto">
-        <div :class="{'bg-white': scrollingDown, '': !scrollingDown}" class="right-0 fixed flex justify-center items-center bg-transparent w-full h-[100px] z-50 duration-500 ease-in">
+        <div :class="{'bg-white shadow-md': scrollingDown}" class="right-0 fixed flex justify-center items-center bg-transparent w-full h-[100px] z-50 duration-500 ease-in">
             <!-- <div class="fixed top-0 bg-transparent w-full h-[100px] z-50 duration-150"> -->
                 <div class="flex justify-between items-center h-full w-full max-w-[1200px]">
                     <div class="">
@@ -89,7 +71,7 @@ export default {
                     </div>
                     <div class="flex gap-10 text-lg text-light-black">
                         <p>Home</p>
-                        <p>Producs</p>
+                        <p>Products</p>
                         <p>Contact Us</p>
                   
                     </div>
